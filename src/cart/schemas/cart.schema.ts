@@ -15,7 +15,7 @@ export class CartItem {
   price: number;
 }
 
-@Schema()
+@Schema({ timestamps: true })
 export class Cart {
   @Prop({ type: Types.ObjectId, ref: "User", required: true })
   userId: Types.ObjectId;

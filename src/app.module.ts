@@ -5,7 +5,8 @@ import { UsersModule } from "./users/users.module";
 import { AuthModule } from "./auth/auth.module";
 import { ProductsModule } from "./products/products.module";
 import { CartModule } from "./cart/cart.module";
-import { OrderModule } from './order/order.module';
+import { OrderModule } from "./order/order.module";
+import { PaymentModule } from "./payment/payment.module";
 
 @Module({
   imports: [
@@ -13,13 +14,14 @@ import { OrderModule } from './order/order.module';
       isGlobal: true,
     }),
     MongooseModule.forRoot(
-      process.env.MONGO_URI || "mongodb://localhost:27017/ecommerce"
+      process.env.MONGODB_URI || "mongodb://localhost:27017/ecommerce"
     ),
     UsersModule,
     AuthModule,
     ProductsModule,
     CartModule,
     OrderModule,
+    PaymentModule,
   ],
 })
 export class AppModule {}
